@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useSelector, connect } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 import { handleAddAnswer } from "../../actions/questions";
 
 const PollPage = ({ dispatch }) => {
@@ -8,6 +8,8 @@ const PollPage = ({ dispatch }) => {
   const questions = useSelector((state) => state.questions);
   const users = useSelector((state) => state.users);
   const id = useParams().id;
+
+  console.log(questions);
   const question = Object.values(questions).find(
     (question) => question.id === id
   );
@@ -27,13 +29,11 @@ const PollPage = ({ dispatch }) => {
   const handleOptionOne = (e) => {
     e.preventDefault();
     dispatch(handleAddAnswer(question.id, "optionOne"));
-    navigate("/");
   };
 
   const handleOptionTwo = (e) => {
     e.preventDefault();
     dispatch(handleAddAnswer(question.id, "optionTwo"));
-    navigate("/");
   };
 
   const calcPercentage = (option, question) => {
@@ -42,11 +42,11 @@ const PollPage = ({ dispatch }) => {
     switch (option) {
       case "optionOne":
         return (
-          (question.optionOne.votes.length / numberVotesTotal) * 100 + " %"
+          (question.optionOne.votes.length / numberVotesTotal).toFixed(2) * 100 + " %"
         );
       case "optionTwo":
         return (
-          (question.optionTwo.votes.length / numberVotesTotal) * 100 + " %"
+          (question.optionTwo.votes.length / numberVotesTotal).toFixed(2) * 100 + " %"
         );
       default:
         return "";
@@ -112,4 +112,4 @@ const PollPage = ({ dispatch }) => {
   );
 };
 
-export default PollPage;
+export default connect ()(PollPage);

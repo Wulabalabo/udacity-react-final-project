@@ -23,7 +23,7 @@ const Nav = ({ dispatch, authedUserId }) => {
         Leaderboard
       </Link>
       <Link
-        to="/new"
+        to="/add"
         className="px-3 py-2 font-medium rounded-lg hover:scale-75 text-sky-700 hover:bg-sky-400 hover:text-white"
       >
         New Poll

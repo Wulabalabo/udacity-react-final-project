@@ -12,7 +12,7 @@ export function receiveQuestions(questions) {
     };
 }
 
-function addQuestion(question) {
+function  addQuestion(question) {
     return {
         type: ADD_QUESTION,
         question,
@@ -28,14 +28,13 @@ function addAnswerQuestion(author, qid, answer) {
     };
 }
 
-export function handleAddQuestion(firstOption, secondOption) {
-    return (dispatch, getState) => {
-        const { authedUser } = getState();
-
-        return saveQuestion(firstOption, secondOption, authedUser)
-            .then((question) => {
-                dispatch(addQuestion(question));
-                dispatch(addQuestionUser(question))
+export function handleAddQuestion(info) {
+    return (dispatch) => {
+        return saveQuestion(info.optionOneText, info.optionTwoText, info.author)
+            .then((response) => {
+                console.log(response)
+                dispatch(addQuestion(response));
+                dispatch(addQuestionUser(response));
             })
     };
 }

@@ -148,7 +148,7 @@ function formatQuestion ({ optionOneText, optionTwoText, author }) {
   return {
     id: generateUID(),
     timestamp: Date.now(),
-    author: author.id,
+    author:author.id,
     optionOne: {
       votes: [],
       text: optionOneText,
@@ -183,7 +183,7 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
     if (!authedUser || !qid || !answer) {
       reject("Please provide authedUser, qid, and answer");
     }
-
+    const question = questions[qid][answer];
     setTimeout(() => {
       users = {
         ...users,
@@ -195,18 +195,17 @@ export function _saveQuestionAnswer ({ authedUser, qid, answer }) {
           }
         }
       }
-
+      
       questions = {
         ...questions,
         [qid]: {
           ...questions[qid],
           [answer]: {
-            ...questions[qid][answer],
-            votes: questions[qid][answer].votes.concat([authedUser])
+            ...question,
+            votes: question.votes.concat([authedUser])
           }
         }
       }
-
       resolve(true)
     }, 500)
   })

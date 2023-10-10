@@ -1,11 +1,18 @@
 # Employee Polls Project
 
 This is the starter code for the final assessment project for Udacity's React & Redux course.
+## About Project
+#### Employee Polls is a tool for generating and participating in polls within a group. Each polls offers two choices: "Option A or Option B?"
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
-
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
-
++ Log in => input username and password to login
++ Dashboard => switch between completed, all and pending polls
++ Polls => select a poll to view it individually and select a radio button to make a choice
++ New polls => create a new polls with two options
++ Leaderboard => view which user has submitted the most queries and responses.
+## Start
++ you can use yarn or npm install to install dependencies. use yarn or npm start to start the app.
++ The project can be viewed in the browser at http://localhost:3000
++ Please use yarn test or npm test to launches the test runner in the interactive watch mode.
 ## Data
 
 There are two types of objects stored in our database:
@@ -98,46 +105,3 @@ _Parameters_: Object that contains the following properties: `authedUser`, `qid`
 
 ---
 
-# Getting Started with Create React App and Redux
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using
-the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
-
-## Installation
-
-### `cd udacity-react-nanodegree-final-project`
-
-To download all dependencies, run:
-
-### `npm install`
-
-## Available Scripts
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

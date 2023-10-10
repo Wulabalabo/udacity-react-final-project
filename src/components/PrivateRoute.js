@@ -1,7 +1,7 @@
 import { Navigate, Outlet} from "react-router-dom";
 import { connect } from "react-redux";
 
-const PrivateRoute = ({ loggedIn }) => {
+const PrivateRoute = ({ children,loggedIn }) => {
   const redirectUrl = window.location.href
     .toString()
     .split(window.location.host)[1];
