@@ -1,0 +1,13 @@
+.login{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-card{
+    background: #F1DF58;
+    padding: 3px 25px 25px;
+    border-radius: 25px;
+    width: 30%;
+    margin: auto;
+}
