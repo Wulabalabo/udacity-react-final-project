@@ -1,25 +1,29 @@
 import { useSelector, connect } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import { handleAddAnswer } from "../../actions/questions";
 
 const PollPage = ({ dispatch }) => {
-  const navigate = useNavigate();
   const authedUser = useSelector((state) => state.authedUser);
   const questions = useSelector((state) => state.questions);
   const users = useSelector((state) => state.users);
   const id = useParams().id;
-
-  console.log(questions);
+  
   const question = Object.values(questions).find(
     (question) => question.id === id
   );
   const author = Object.values(users).find(
-    (user) => user.id === question.author
+    (user) =>
+    {
+      if(question!==undefined){
+        return user.id === question.author;
+      }
+      return null;
+    }
   );
   if (!authedUser || !question || !author) {
     console.log(`${!authedUser} || ${!question} || !${author}}`);
-    navigate("/*");
-    return null;
+    //navigate("/*");
+    return <Navigate to="/*"/>;
   }
 
   const hasVotedForOptionOne = question.optionOne.votes.includes(authedUser.id);

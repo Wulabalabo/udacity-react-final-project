@@ -42,9 +42,10 @@ const Leaderboard = ({ users }) => {
   );
 };
 
-const mapStateToProps = ({ users }) => ({
+const mapStateToProps = ({ users }) => (
+  {  
   users: Object.values(users).sort(
-    (a, b) => Object.keys(a.answers).length - Object.keys(b.answers).length
+    (a, b) => (Object.keys(b.answers).length + Object.keys(b.questions).length) - (Object.keys(a.answers).length + Object.keys(a.questions).length)
   ),
 });
 
